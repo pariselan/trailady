@@ -68,6 +68,15 @@ Rails.application.configure do
 
   #Devise ActionMailer default URL
   config.action_mailer.default_url_options = { host: 'http://trailady.herokuapp.com' }
+  config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: "trailady.com@gmail.com",
+      password: "#{ENV['GMAIL_PW']}"
+
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
